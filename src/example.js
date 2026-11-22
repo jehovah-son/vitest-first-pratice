@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function LongestString(str1, str2) {
   if (str2.length > str1.length) {
     return str2;
