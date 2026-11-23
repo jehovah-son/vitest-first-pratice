@@ -23,4 +23,16 @@ describe("example.LongestString", () => {
     const result = LongestString("", "");
     expect(result).toBe("");
   });
+  it("shoud handle empty strings correctly", () => {
+    const result = LongestString("", "non-empty");
+    expect(result).toBe("non-empty");
+  });
+  it("should return the first string when second strings are empty", () => {
+    const result = LongestString("non-empty", "");
+    expect(result).toBe("non-empty");
+  });
+  it("should ignore leading/trailing whitespace", () => {
+    const result = LongestString("  hi  ", "world");
+    expect(result).toBe("world");
+  });
 });
