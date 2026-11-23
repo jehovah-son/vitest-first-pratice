@@ -37,3 +37,13 @@ describe("example.LongestString", () => {
     expect(result).toBe("world");
   });
 });
+
+// is Prime test suite
+
+describe("example.IsPrime", () => {
+  it("should return true for small prime numbers", () => {});
+  it("should return false for non prime numbers", () => {});
+  it("should return matching result in an array using toEqual", () => {});
+  it("should detects prime within a filtered list", () => {});
+  it("should throw an error when passed a non-number", () => {});
+});
