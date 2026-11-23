@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
-import LongestString from "../src/example.js";
+import LongestString from "../src/example-longest-string.js";
+import IsPrime from "../src/example-is-prime.js";
 
 // test suite
 describe("example.LongestString", () => {
