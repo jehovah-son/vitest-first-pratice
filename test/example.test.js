@@ -19,4 +19,8 @@ describe("example.LongestString", () => {
     const result = LongestString("short", "longer");
     expect(result).toBe("longer");
   });
+  it("should return the first string when both strings are empty", () => {
+    const result = LongestString("", "");
+    expect(result).toBe("");
+  });
 });
