@@ -1,8 +1,6 @@
-import React from "react";
-
 export default function IsPrime(num) {
   if (typeof num !== "number") {
-    throw new Error("Input must be a number");
+    throw new Error("input must be a number");
   }
   if (num <= 1) {
     return false;
