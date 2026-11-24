@@ -5,6 +5,7 @@ export default function IsPrime(num) {
   if (num <= 1) {
     return false;
   }
+  if (!Number.isInteger(num)) return false;
   //   if (num <= 3) {
   //     return true;
   //   }

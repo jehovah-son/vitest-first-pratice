@@ -106,8 +106,8 @@ describe("examples.IsPrime", () => {
     expect(result2).toBe(false);
   });
   it("return false for non-integers", () => {
-    // const result = () => IsPrime("my name is john doe");
-    // expect(result).toBeFalsy();
+    const result = IsPrime(2.5);
+    expect(result).toBeFalsy();
   });
   it("should throw an error when passed a non-number input", () => {
     const result = () => IsPrime("not a number");
