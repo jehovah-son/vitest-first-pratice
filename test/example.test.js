@@ -155,5 +155,16 @@ describe("example.ShippingCost", () => {
   it("should ignore non-matching coupon ", () => {
     const result1 = ShippingCost(1, "freeshipping");
     expect(result1).toBe(3.99);
+
+    const result2 = ShippingCost(1);
+    expect(result2).toBe(3.99);
+  });
+  it("should throw an error for invalid weight", () => {
+    const result = () => ShippingCost(0);
+    expect(result).toThrow();
+  });
+  it("should throw an error if coupon is not a string", () => {
+    const result = () => ShippingCost(0, null);
+    expect(result).toThrow();
   });
 });
