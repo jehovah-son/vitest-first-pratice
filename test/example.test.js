@@ -132,5 +132,28 @@ describe("example.ShippingCost", () => {
     expect(result2).toBe(5.99);
     const result3 = ShippingCost(10.16);
     expect(result3).toBe(8.99);
+    const result4 = ShippingCost(70.4);
+    expect(result4).toBe(14.99);
+  });
+
+  // boundary testing
+  it("should charge correct prices at boundaries", () => {
+    const result1 = ShippingCost(1);
+    expect(result1).toBe(3.99);
+    const result2 = ShippingCost(5);
+    expect(result2).toBe(5.99);
+    const result3 = ShippingCost(20);
+    expect(result3).toBe(8.99);
+    const result4 = ShippingCost(20.1);
+    expect(result4).toBe(14.99);
+  });
+
+  it("should apply 'FREESHIPPING' coupon exactly", () => {
+    const result = ShippingCost(40, "FREESHIPPING");
+    expect(result).toBe(0);
+  });
+  it("should ignore non-matching coupon ", () => {
+    const result1 = ShippingCost(1, "freeshipping");
+    expect(result1).toBe(3.99);
   });
 });
