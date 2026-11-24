@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import LongestString from "../src/example-longest-string.js";
 import IsPrime from "../src/example-is-prime.js";
+import ShippingCost from "../src/example-shipping-cost.js";
 
 //Longest string test suite
 describe("example.LongestString", () => {
@@ -116,3 +117,5 @@ describe("examples.IsPrime", () => {
     expect(result).toThrow("input must be a number");
   });
 });
+
+// SHIPPING COST TEST SUITE
