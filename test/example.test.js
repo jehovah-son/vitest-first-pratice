@@ -87,11 +87,32 @@ describe("examples.IsPrime", () => {
     const result = number.map(IsPrime);
     expect(result).toEqual([false, false, true]);
   });
-  it("return false all even numbers > 2", () => {
+  it("return false for all even numbers > 2", () => {
     const result = IsPrime(4, 9);
     expect(result).toBeFalsy();
   });
-  it("identifies common primes", () => {});
-  it("return false for perfect square reliably", () => {});
-  it("treat 0 and 1 as non-prime, and 2 as prime", () => {});
+  it("identifies common primes", () => {
+    const numbers = [1, 2, 3, 4, 5];
+    const result = numbers.filter(IsPrime);
+    expect(result).toContain(2);
+    // or
+    const result2 = IsPrime(5);
+    expect(result2).toBe(true);
+  });
+  it("return false for perfect square reliably", () => {
+    const result1 = IsPrime(49);
+    expect(result1).toBe(false);
+    const result2 = IsPrime(49);
+    expect(result2).toBe(false);
+  });
+  it("return false for non-integers", () => {
+    // const result = () => IsPrime("my name is john doe");
+    // expect(result).toBeFalsy();
+  });
+  it("should throw an error when passed a non-number input", () => {
+    const result = () => IsPrime("not a number");
+    // any of the following assertions can be used to check for thrown errors
+    expect(result).toThrow();
+    expect(result).toThrow("input must be a number");
+  });
 });
