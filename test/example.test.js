@@ -119,3 +119,18 @@ describe("examples.IsPrime", () => {
 });
 
 // SHIPPING COST TEST SUITE
+
+describe("example.ShippingCost", () => {
+  // it("should return a number", () => {
+  //   const result = ShippingCost(5);
+  //   expect(result).toBeTruthy;
+  // });
+  it("should charge correct prices for the interior weight", () => {
+    const result1 = ShippingCost(0.5);
+    expect(result1).toBe(3.99);
+    const result2 = ShippingCost(3.38);
+    expect(result2).toBe(5.99);
+    const result3 = ShippingCost(10.16);
+    expect(result3).toBe(8.99);
+  });
+});
