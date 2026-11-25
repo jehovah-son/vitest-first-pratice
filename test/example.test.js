@@ -125,27 +125,34 @@ describe("example.ShippingCost", () => {
   //   const result = ShippingCost(5);
   //   expect(result).toBeTruthy;
   // });
-  it("should charge correct prices for the interior weight", () => {
-    const result1 = ShippingCost(0.5);
-    expect(result1).toBe(3.99);
-    const result2 = ShippingCost(3.38);
-    expect(result2).toBe(5.99);
-    const result3 = ShippingCost(10.16);
-    expect(result3).toBe(8.99);
-    const result4 = ShippingCost(70.4);
-    expect(result4).toBe(14.99);
-  });
+  it.each([
+    { weight: 0.5, expected: 3.99 },
+    { weight: 3.38, expected: 5.99 },
+    { weight: 10.16, expected: 8.99 },
+    { weight: 70.4, expected: 14.99 },
+  ])(
+    "should charge correct prices for the interior weight",
+    ({ weight, expected }) => {
+      const result1 = ShippingCost(weight);
+      expect(result1).toBe(expected);
+    },
+  );
 
   // boundary testing
-  it("should charge correct prices at boundaries", () => {
-    const result1 = ShippingCost(1);
-    expect(result1).toBe(3.99);
-    const result2 = ShippingCost(5);
-    expect(result2).toBe(5.99);
-    const result3 = ShippingCost(20);
-    expect(result3).toBe(8.99);
-    const result4 = ShippingCost(20.1);
-    expect(result4).toBe(14.99);
+  it.each([
+    { weight: 1, expected: 3.99 },
+    { weight: 5, expected: 5.99 },
+    { weight: 20, expected: 8.99 },
+    { weight: 20.1, expected: 14.99 },
+  ])("should charge correct prices at boundaries", ({ weight, expected }) => {
+    const result1 = ShippingCost(weight);
+    expect(result1).toBe(expected);
+    // const result2 = ShippingCost(5);
+    // expect(result2).toBe(5.99);
+    // const result3 = ShippingCost(20);
+    // expect(result3).toBe(8.99);
+    // const result4 = ShippingCost(20.1);
+    // expect(result4).toBe(14.99);
   });
 
   it("should apply 'FREESHIPPING' coupon exactly", () => {
